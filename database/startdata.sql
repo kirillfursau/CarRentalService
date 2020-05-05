@@ -5,7 +5,7 @@ USE car_rental_service;
 create table user
 (
     id           bigint      not null,
-    phone_number int         not null,
+    phone_number int         not null UNIQUE,
     password     varchar(35) not null,
     constraint car_class_pk
         primary key (id)
@@ -37,11 +37,12 @@ create table customer_details
 
 create table car_class
 (
+    id                bigint      not null,
     class             varchar(15) not null,
     transmission_type varchar(15) not null,
     air_conditioning  boolean     not null,
     constraint car_class_pk
-        primary key (class)
+        primary key (id)
 
 );
 
@@ -57,10 +58,10 @@ create table car
     mileage               int         not null,
     price_auto            int         not null,
     rental_day_price      int         not null,
-    car_class             varchar(15) not null,
+    car_class_id          bigint      not null,
     constraint car_pk
         primary key (id),
-    foreign key (car_class) references car_class (class)
+    foreign key (car_class_id) references car_class (id)
 
 );
 
@@ -113,11 +114,11 @@ create table `car_pick-up_location`
 create table role
 (
     id              bigint     not null,
-    phone_number_id bigint     not null,
+    user_id bigint     not null,
     access_right    varchar(5) not null,
     constraint role_pk
         primary key (id),
-    foreign key (phone_number_id) references user (id)
+    foreign key (user_id) references user (id)
 );
 
 
