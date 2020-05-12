@@ -61,6 +61,6 @@ public class CarRepositoryImpl implements CarRepository {
                 .getResultList()
                 .stream()
                 .findFirst()
-                .orElseThrow(() -> new RuntimeException("Company not found"));
+                .orElseThrow(() -> new RuntimeException("Car class not found"));
     }
 }
