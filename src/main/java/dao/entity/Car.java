@@ -1,10 +1,12 @@
 package dao.entity;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
 
 import javax.persistence.*;
 import java.time.LocalDate;
 import java.util.List;
+
 
 @Data
 @Entity
@@ -44,4 +46,9 @@ public class Car extends BaseEntity {
 
     @OneToMany(mappedBy = "pickUpLocationId")
     private List<RentalInformation> rentalInformation;
+
+    @ManyToMany(mappedBy = "cars")
+    private List<PickUpLocation> pickUpLocationPickUpLocations;
+
+
 }
