@@ -1,24 +1,32 @@
 create schema car_rental_service;
 USE car_rental_service;
 
-
+create table role
+(
+    id              bigint     not null,
+    access_right    varchar(5) not null,
+    constraint role_pk
+        primary key (id)
+);
 create table user
 (
     id           bigint      not null,
     phone_number int         not null UNIQUE,
     password     varchar(35) not null,
+    role_id      bigint not null ,
     constraint car_class_pk
-        primary key (id)
+        primary key (id),
+        foreign key (role_id) references role (id)
 );
 
-create table customer_details
+create table user_details
 (
     id                     bigint      not null,
     first_name             varchar(25) not null,
     second_name            varchar(25) not null,
     date_of_birth          date        not null,
     sex                    varchar(10) not null,
-    phone_number_id        bigint      not null,
+    user_id                bigint      not null,
     country                varchar(30) not null,
     city                   varchar(30) not null,
     street                 varchar(30) not null,
@@ -31,7 +39,7 @@ create table customer_details
     country_of_residence   varchar(30) not null,
     constraint car_class_pk
         primary key (id),
-    foreign key (phone_number_id) references user (id)
+    foreign key (user_id) references user (id)
 );
 
 
@@ -111,15 +119,7 @@ create table `car_pick-up_location`
     foreign key (`pick-up_location_id`) references `pick-up_location` (id)
 );
 
-create table role
-(
-    id              bigint     not null,
-    user_id bigint     not null,
-    access_right    varchar(5) not null,
-    constraint role_pk
-        primary key (id),
-    foreign key (user_id) references user (id)
-);
+
 
 
 
