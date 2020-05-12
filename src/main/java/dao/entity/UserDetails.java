@@ -7,7 +7,7 @@ import java.time.LocalDate;
 
 @Data
 @Entity
-@Table(name = "customer_details")
+@Table(name = "user_details")
 public class UserDetails extends BaseEntity {
     @Column(name = "first_name")
     private String firstName;
