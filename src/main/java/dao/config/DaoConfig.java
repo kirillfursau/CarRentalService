@@ -1,10 +1,5 @@
 package dao.config;
 
-import java.sql.Connection;
-import java.util.Properties;
-
-import javax.sql.DataSource;
-
 import org.hibernate.SessionFactory;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
@@ -13,6 +8,9 @@ import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.orm.hibernate5.HibernateTransactionManager;
 import org.springframework.orm.hibernate5.LocalSessionFactoryBean;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
+
+import javax.sql.DataSource;
+import java.util.Properties;
 
 @Configuration
 @EnableTransactionManagement
@@ -37,6 +35,7 @@ public class DaoConfig {
         factoryBean.setHibernateProperties(hibernateProperties());
         return factoryBean;
     }
+
 
     private Properties hibernateProperties() {
         Properties hibernateProperties = new Properties();

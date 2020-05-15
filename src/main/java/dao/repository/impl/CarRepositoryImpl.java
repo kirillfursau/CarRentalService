@@ -11,37 +11,30 @@ import org.springframework.stereotype.Repository;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
-import java.time.LocalDate;
 import java.util.Optional;
 
-@Repository
+
 @RequiredArgsConstructor
+@Repository
 public class CarRepositoryImpl implements CarRepository {
 
     private final SessionFactory sessionFactory;
 
     @Override
     public Optional<Car> getCarById(Long id) {
-        return sessionFactory.getCurrentSession()
-                .createQuery("select e from " + "Car" + " e where e.id = :id", Car.class)
-                .setParameter("id", id)
-                .getResultList()
-                .stream()
-                .findFirst();
+        return Optional.ofNullable(sessionFactory.getCurrentSession()
+                .get(Car.class, id));
     }
 
     @Override
-    public Car saveCar(String registeredCarNumber, String bodyNumber, String engineType, LocalDate yearOfIssue, String brand,
-                       String model, int mileage, int priceAuto, int rentalDayPrice, Long carClass) {
+    public Car saveCar(String registeredCarNumber, String engineType, int yearOfIssue,
+                       String brand, String model, int rentalDayPrice, Long carClass) {
         Car car = new Car();
         car.setRegisteredCarNumber(registeredCarNumber);
-        car.setBodyNumber(bodyNumber);
         car.setEngineType(engineType);
         car.setYearOfIssue(yearOfIssue);
         car.setBrand(brand);
         car.setModel(model);
-        car.setMileage(mileage);
-        car.setPriceAuto(priceAuto);
         car.setRentalDayPrice(rentalDayPrice);
         CarClass carClassEntity = getCarClass(carClass);
         car.setCarClass(carClassEntity);

@@ -1,6 +1,5 @@
 package dao.entity;
 
-import lombok.AllArgsConstructor;
 import lombok.Data;
 
 import javax.persistence.*;
@@ -16,26 +15,18 @@ public class Car extends BaseEntity {
     @Column(name = "registered_car_number")
     private String registeredCarNumber;
 
-    @Column(name = "body_number")
-    private String bodyNumber;
 
     @Column(name = "engine_type")
     private String engineType;
 
     @Column(name = "year_of_issue")
-    private LocalDate yearOfIssue;
+    private int yearOfIssue;
 
     @Column
     private String brand;
 
     @Column
     private String model;
-
-    @Column
-    private int mileage;
-
-    @Column(name = "price_auto")
-    private int priceAuto;
 
     @Column(name = "rental_day_price")
     private int rentalDayPrice;
@@ -49,6 +40,5 @@ public class Car extends BaseEntity {
 
     @ManyToMany(mappedBy = "cars")
     private List<PickUpLocation> pickUpLocationPickUpLocations;
-
 
 }

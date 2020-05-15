@@ -3,8 +3,8 @@ USE car_rental_service;
 
 create table role
 (
-    id              bigint     not null,
-    access_right    varchar(5) not null,
+    id           bigint     not null,
+    access_right varchar(5) not null,
     constraint role_pk
         primary key (id)
 );
@@ -13,10 +13,10 @@ create table user
     id           bigint      not null,
     phone_number int         not null UNIQUE,
     password     varchar(35) not null,
-    role_id      bigint not null ,
+    role_id      bigint      not null,
     constraint car_class_pk
         primary key (id),
-        foreign key (role_id) references role (id)
+    foreign key (role_id) references role (id)
 );
 
 create table user_details
@@ -58,13 +58,10 @@ create table car
 (
     id                    bigint      not null,
     registered_car_number varchar(7)  not null,
-    body_number           varchar(15) not null,
     engine_type           varchar(10) not null,
-    year_of_issue         date        not null,
+    year_of_issue         int         not null,
     brand                 varchar(10) not null,
     model                 varchar(15) not null,
-    mileage               int         not null,
-    price_auto            int         not null,
     rental_day_price      int         not null,
     car_class_id          bigint      not null,
     constraint car_pk
@@ -72,9 +69,6 @@ create table car
     foreign key (car_class_id) references car_class (id)
 
 );
-
-create unique index car_body_number_uindex
-    on car (body_number);
 
 create unique index car_registered_car_number_uindex
     on car (registered_car_number);
@@ -97,7 +91,7 @@ create table rental_information
     rental_time         int    not null,
     return_date         date   not null,
     car_id              bigint not null,
-    user_id         bigint not null,
+    user_id             bigint not null,
     rental_price        int    not null,
     pick_up_location_id bigint not null,
     constraint rental_information_pk
