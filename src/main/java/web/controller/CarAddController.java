@@ -20,6 +20,6 @@ public class CarAddController {
                               @PathVariable Long carClass) {
         carAddService.add(registeredCarNumber, engineType, yearOfIssue,
                 brand, carModel, rentalDayPrice, carClass);
-        return "redirect:/index.jsp";
+        return "redirect:/hello";
     }
 }
