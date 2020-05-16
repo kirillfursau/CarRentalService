@@ -7,15 +7,15 @@ import lombok.RequiredArgsConstructor;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
 import java.util.Optional;
 
-
-@RequiredArgsConstructor
 @Repository
+@RequiredArgsConstructor
 public class CarRepositoryImpl implements CarRepository {
 
     private final SessionFactory sessionFactory;
@@ -27,6 +27,7 @@ public class CarRepositoryImpl implements CarRepository {
     }
 
     @Override
+    @Transactional
     public Car saveCar(String registeredCarNumber, String engineType, int yearOfIssue,
                        String brand, String model, int rentalDayPrice, Long carClass) {
         Car car = new Car();
@@ -44,7 +45,7 @@ public class CarRepositoryImpl implements CarRepository {
     }
 
     @Override
-    public CarClass getCarClass(Long id){
+    public CarClass getCarClass(Long id) {
         Session session = sessionFactory.getCurrentSession();
         CriteriaBuilder cb = session.getCriteriaBuilder();
         CriteriaQuery<CarClass> query = cb.createQuery(CarClass.class);
