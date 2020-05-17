@@ -2,7 +2,10 @@ package web.controller;
 
 import dao.repository.model.CarDto;
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 import service.api.CarService;
 
 @RestController
@@ -18,14 +21,4 @@ public class CarController {
                 dto.getYearOfIssue(), dto.getBrand(), dto.getModel(), dto.getRentalDayPrice(), dto.getCarClass());
         return "index";
     }
-
-//    @GetMapping(path = "/car_add/?registeredCarNumber={registeredCarNumber}&engineType={engineType}&yearOfIssue={yearOfIssue}&brand={brand}&carModel={carModel}&rentalDayPrice={rentalDayPrice}&carClass={carClass}")
-//    public String getNextStep(Model model, @PathVariable String registeredCarNumber, @PathVariable String engineType,
-//                              @PathVariable int yearOfIssue, @PathVariable String brand,
-//                              @PathVariable String carModel, @PathVariable int rentalDayPrice,
-//                              @PathVariable Long carClass) {
-//        carAddService.add(registeredCarNumber, engineType, yearOfIssue,
-//                brand, carModel, rentalDayPrice, carClass);
-//        return "index";
-//    }
 }
