@@ -19,14 +19,14 @@ import java.util.Locale;
 
 @Configuration
 @EnableWebMvc
-@ComponentScan(basePackages = {"web.controller"})
+@ComponentScan(basePackages = {"web"})
 public class WebConfig implements WebMvcConfigurer {
 
     @Bean
     public ViewResolver internalResourceViewResolver() {
         InternalResourceViewResolver bean = new InternalResourceViewResolver();
         bean.setViewClass(JstlView.class);
-        bean.setPrefix("/WEB-INF/jsp/");
+        bean.setPrefix("WEB-INF/jsp/");
         bean.setSuffix(".jsp");
         return bean;
     }
