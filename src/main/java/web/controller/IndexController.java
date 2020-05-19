@@ -9,6 +9,6 @@ public class IndexController {
 
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public String welcome() {
-        return "index";
+        return "registration_form";
     }
 }

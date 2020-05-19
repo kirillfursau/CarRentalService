@@ -14,9 +14,9 @@ public class CarController {
     private final CarService carService;
 
     @PostMapping("/create-car")
-    public String createCar(@ModelAttribute CarDto dto) {
-        carService.create(dto);
-        return "index";
+    public String createCar(@ModelAttribute CarDto carDto) {
+        carService.create(carDto);
+        return "redirect:http://localhost:8090/CarRentalService_war_exploded/";
     }
 
     @GetMapping("/delete/{id}")

@@ -11,7 +11,7 @@
     </script>
 </head>
 <body>
-<form action="/CarRentalService_war_exploded/cars/car_add" method="post">
+<form action="/CarRentalService_war_exploded/cars/create-car" method="post">
     <input name="registeredCarNumber">
     <input name="engineType">
     <input name="yearOfIssue">

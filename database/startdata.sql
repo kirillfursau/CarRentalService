@@ -13,7 +13,7 @@ create table user
     id           bigint AUTO_INCREMENT not null,
     phone_number int                   not null UNIQUE,
     password     varchar(35)           not null,
-    role_id      bigint                not null,
+    role_id      bigint                not null DEFAULT 2,
     constraint car_class_pk
         primary key (id),
     foreign key (role_id) references role (id)
