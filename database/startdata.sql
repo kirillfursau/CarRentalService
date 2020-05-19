@@ -25,7 +25,7 @@ create table user_details
     first_name             varchar(25)           not null,
     second_name            varchar(25)           not null,
     date_of_birth          date                  not null,
-    sex                    varchar(10)           not null,
+    gender                 varchar(10)           not null,
     user_id                bigint                not null,
     country                varchar(30)           not null,
     city                   varchar(30)           not null,
@@ -124,6 +124,7 @@ VALUES (1, 'Business', 'Auto', true),
 INSERT INTO role (id, access_right)
 VALUES (1, 'Admin'),
        (2, 'User');
+
 
 
 

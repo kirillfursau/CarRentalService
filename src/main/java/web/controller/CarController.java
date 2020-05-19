@@ -2,23 +2,26 @@ package web.controller;
 
 import dao.repository.model.CarDto;
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.*;
 import service.api.CarService;
 
-@RestController
+@Controller
 @RequiredArgsConstructor
 @RequestMapping("/cars")
 public class CarController {
 
     private final CarService carService;
 
-    @PostMapping("/car_add")
+    @PostMapping("/create-car")
     public String createCar(@ModelAttribute CarDto dto) {
-        carService.add(dto.getRegisteredCarNumber(), dto.getEngineType(),
-                dto.getYearOfIssue(), dto.getBrand(), dto.getModel(), dto.getRentalDayPrice(), dto.getCarClass());
+        carService.create(dto);
+        return "index";
+    }
+
+    @GetMapping("/delete/{id}")
+    public String deleteCar(@PathVariable Long id) {
+        carService.deleteById(id);
         return "index";
     }
 }
