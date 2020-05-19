@@ -1,4 +1,4 @@
-package dao.repository;
+package dao.repository.api;
 
 public interface UserRepository {
 }
