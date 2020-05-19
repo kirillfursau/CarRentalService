@@ -14,7 +14,7 @@ import java.util.List;
 public class CarClass extends BaseEntity {
 
     @OneToMany(mappedBy = "carClass")
-    private List<Car> cars ;
+    private List<Car> cars;
     @Column(name = "transmission_type")
     private String transmissionType;
     @Column(name = "air_conditioning")
