@@ -11,7 +11,7 @@ create table role
 create table user
 (
     id           bigint AUTO_INCREMENT not null,
-    phone_number int                   not null UNIQUE,
+    phone_number bigint                not null UNIQUE,
     password     varchar(35)           not null,
     role_id      bigint                not null DEFAULT 2,
     constraint car_class_pk
