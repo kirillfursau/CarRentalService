@@ -1,5 +1,6 @@
 package web.controller;
 
+import dao.repository.model.UserDetailsDto;
 import dao.repository.model.UserDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
@@ -16,8 +17,14 @@ public class RegistrationController {
     private final RegistrationService registrationService;
 
     @PostMapping("/create-user")
-    public String createCar(@ModelAttribute UserDto userDto) {
+    public String createUser(@ModelAttribute UserDto userDto) {
         registrationService.registration(userDto);
+        return "redirect:http://localhost:8090/CarRentalService_war_exploded/";
+    }
+
+    @PostMapping("/create-user-details")
+    public String createUserDetails(@ModelAttribute UserDetailsDto userDetailsDto) {
+        registrationService.createUserDetails(userDetailsDto);
         return "redirect:http://localhost:8090/CarRentalService_war_exploded/";
     }
 }

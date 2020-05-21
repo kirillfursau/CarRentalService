@@ -7,6 +7,8 @@ import org.hibernate.SessionFactory;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.Optional;
+
 @Repository
 @RequiredArgsConstructor
 public class UserRepositoryImpl implements UserRepository {
@@ -19,6 +21,17 @@ public class UserRepositoryImpl implements UserRepository {
         sessionFactory.getCurrentSession()
                 .save(user);
         return user;
+    }
+
+    @Override
+    @Transactional
+    public Optional<User> findUserByPhoneNumber(Long phoneNumber) {
+        return sessionFactory.getCurrentSession()
+                .createQuery("from User where phoneNumber = :phone_number")
+                .setParameter("phone_number", phoneNumber)
+                .getResultList()
+                .stream()
+                .findFirst();
     }
 }
 
