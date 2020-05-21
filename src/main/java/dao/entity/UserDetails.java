@@ -28,6 +28,7 @@ public class UserDetails extends BaseEntity {
     @Embedded
     private Address address;
 
+    @Column
     private String apartment;
 
     @Column(name = "passport_id")
@@ -37,7 +38,7 @@ public class UserDetails extends BaseEntity {
     private LocalDate passportDateOfIssue;
 
     @Column(name = "passport_expiry_date")
-    private LocalDate passport_expiry_date;
+    private LocalDate passportExpiryDate;
 
     @Column(name = "place_of_birthday")
     private String placeOfBirthDay;

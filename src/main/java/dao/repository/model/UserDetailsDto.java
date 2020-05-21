@@ -1,23 +1,23 @@
 package dao.repository.model;
 
-import dao.entity.Address;
-import dao.entity.User;
+import dao.entity.Gender;
 import lombok.Data;
-
-import java.time.LocalDate;
 
 @Data
 public class UserDetailsDto {
     private String firstName;
     private String secondName;
-    private LocalDate dateOfBirth;
-    private String gender;
-    private User user;
-    private Address address;
+    private String dateOfBirth;
+    private Gender gender;
+    private Long phoneNumber;
+    private String country;
+    private String city;
+    private String street;
+    private String building;
     private String apartment;
     private String passportId;
-    private LocalDate passportDateOfIssue;
-    private LocalDate passport_expiry_date;
+    private String passportDateOfIssue;
+    private String passportExpiryDate;
     private String placeOfBirthDay;
     private String countryOfResidence;
 }
