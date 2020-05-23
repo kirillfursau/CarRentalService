@@ -1,7 +1,7 @@
 package dao.repository.api;
 
 import dao.entity.Role;
+import org.springframework.data.repository.CrudRepository;
 
-public interface RoleRepository {
-    Role getRoleById(Long id);
+public interface RoleRepository extends CrudRepository<Role, Long> {
 }

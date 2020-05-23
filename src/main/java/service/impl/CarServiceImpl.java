@@ -6,20 +6,21 @@ import dao.repository.api.CarRepository;
 import dao.repository.model.CarDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import service.api.CarService;
 
-@RequiredArgsConstructor
 @Service
+@Transactional
+@RequiredArgsConstructor
 public class CarServiceImpl implements CarService {
-
     private final CarRepository carRepository;
     private final CarClassRepository carClassRepository;
 
     @Override
     public Car create(CarDto carDto) {
         Car car = convertDto(carDto);
-        car.setCarClass(carClassRepository.getCarClassById(carDto.getCarClass()));
-        return carRepository.saveCar(car);
+        car.setCarClass(carClassRepository.findById(carDto.getCarClass()).get());
+        return carRepository.save(car);
     }
 
     @Override

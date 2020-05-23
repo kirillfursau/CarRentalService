@@ -10,16 +10,17 @@ import dao.repository.model.UserDetailsDto;
 import dao.repository.model.UserDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import service.api.RegistrationService;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
-@RequiredArgsConstructor
 @Service
+@Transactional
+@RequiredArgsConstructor
 public class RegistrationServiceImpl implements RegistrationService {
-
     private final UserRepository userRepository;
     private final RoleRepository roleRepository;
     private final UserDetailsRepository userDetailsRepository;
@@ -27,14 +28,14 @@ public class RegistrationServiceImpl implements RegistrationService {
     @Override
     public User registration(UserDto userDto) {
         User user = convertUser(userDto);
-        user.setRole(roleRepository.getRoleById(2l));
-        return userRepository.saveNewUser(user);
+        user.setRole(roleRepository.findById(2l).get());
+        return userRepository.save(user);
     }
 
     @Override
     public UserDetails createUserDetails(UserDetailsDto userDetailsDto) {
         UserDetails userDetails = convertUserDetails(userDetailsDto);
-        userDetailsRepository.saveUserDetails(userDetails);
+        userDetailsRepository.save(userDetails);
         return null;
     }
 
