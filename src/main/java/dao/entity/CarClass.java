@@ -13,7 +13,7 @@ public class CarClass extends BaseEntity {
     @OneToMany(mappedBy = "carClass", fetch = FetchType.EAGER)
     private List<Car> cars;
 
-    @Column(name= "class")
+    @Column(name = "class")
     private String carClass;
 
     @Column(name = "transmission_type")

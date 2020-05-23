@@ -11,4 +11,6 @@ public interface CarService {
     String deleteById(Long id);
 
     List<Car> showAllCars();
+
+    Car showCar(Long id);
 }
