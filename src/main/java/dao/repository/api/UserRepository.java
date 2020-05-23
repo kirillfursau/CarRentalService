@@ -1,6 +1,5 @@
 package dao.repository.api;
 
-import dao.entity.Car;
 import dao.entity.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 
