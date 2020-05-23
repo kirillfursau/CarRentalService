@@ -31,13 +31,6 @@
                     <div class="button login"><a href="./sign-in">Вход</a></div>
                     <div class="button account"><a href="./account-info">Аккаунт</a></div>
                 </div>
-                <div class="filters">
-                    <ul>
-                        <li class="item background"><a href="">ЭКОНОМ</a></li>
-                        <li class="item background"><a href="">СРЕДНИЙ</a></li>
-                        <li class="item background"><a href="">БИЗНЕС</a></li>
-                    </ul>
-                </div>
             </div>
         </div>
         <div class="main__content__list">
@@ -48,7 +41,7 @@
                             <c:out value="${cars.get(j).carClass.carClass}"/>
                         </div>
                         <div class="item__disciption--title">
-                            <a href="./car_info.html">
+                            <a href="./car-info-${cars.get(j).id}">
                                 <c:out value="${cars.get(j).brand}"/> <c:out value="${cars.get(j).model}"/><br>
                                 <span class="subtitle--year">(<c:out value="${cars.get(j).yearOfIssue}"/> год)</span></a><br>
                             <span class="subtitle--price"></span>Цена: от <c:out value="${cars.get(j).rentalDayPrice}"/> р.</span>
