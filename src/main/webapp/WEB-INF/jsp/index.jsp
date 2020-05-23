@@ -10,8 +10,12 @@
     <link href="https://fonts.googleapis.com/css?family=Exo+2:400,500|Montserrat:300,400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
     <title>Document</title>
-    <script type="text/javascript"><%@include file="/script/reg.js"%></script>
-    <style><%@include file="/css/style.css"%></style>
+    <script type="text/javascript">
+        <%@include file="/script/reg.js" %>
+    </script>
+    <style>
+        <%@include file="/css/style.css" %>
+    </style>
 </head>
 
 <body>
@@ -37,68 +41,24 @@
             </div>
         </div>
         <div class="main__content__list">
-            <div class="main__content__list--item">
-                <div class="item__disciption">
-                    <div class="item__disciption--class">
-                        Бизнес
+            <c:forEach var="j" begin="0" end="${cars.size()-1}" step="1">
+                <div class="main__content__list--item">
+                    <div class="item__disciption">
+                        <div class="item__disciption--class">
+                            <c:out value="${cars.get(j).carClass.carClass}"/>
+                        </div>
+                        <div class="item__disciption--title">
+                            <a href="./car_info.html">
+                                <c:out value="${cars.get(j).brand}"/> <c:out value="${cars.get(j).model}"/><br>
+                                <span class="subtitle--year">(<c:out value="${cars.get(j).yearOfIssue}"/> год)</span></a><br>
+                            <span class="subtitle--price"></span>Цена: от <c:out value="${cars.get(j).rentalDayPrice}"/> р.</span>
+                        </div>
+                        <button class="item__disciption--order">Забронировать</button>
                     </div>
-                    <div class="item__disciption--title">
-                        <a href="./car_info.html">Hyundai Genesis G80<br>
-                            <span class="subtitle--year">(2017 год)</span></a><br>
-                        <span class="subtitle--price"></span>Цена: от 170 р.</span>
-                    </div>
-                    <button class="item__disciption--order">Забронировать</button>
                 </div>
-            </div>
-            <div class="main__content__list--item">
-                <div class="item__image">
-                    <img src="img/solaris.jpg" alt="car-image">
-                </div>
-                <div class="item__disciption">
-                    <div class="item__disciption--class">
-                        Средний
-                    </div>
-                    <div class="item__disciption--title">
-                        <a>Hyundai Solaris AT<br>
-                            <span class="subtitle--year">(2018 год)</span></a><br>
-                        <span class="subtitle--price"></span>Цена: от 49 р.</span>
-                    </div>
-                    <button class="item__disciption--order">Забронировать</button>
-                </div>
-            </div>
-            <div class="main__content__list--item">
-                <div class="item__image">
-                    <img src="img/sandero.jpg" alt="car-image">
-                </div>
-                <div class="item__disciption">
-                    <div class="item__disciption--class">
-                        Эконом
-                    </div>
-                    <div class="item__disciption--title">
-                        <a>Renault Sandero<br>
-                            <span class="subtitle--year">(2018 год)</span></a><br>
-                        <span class="subtitle--price"></span>Цена: от 35 р.</span>
-                    </div>
-                    <button class="item__disciption--order">Забронировать</button>
-                </div>
-            </div>
-            <div class="main__content__list--item">
-                <div class="item__image">
-                    <img src="img/genesis-g80.jpg" alt="car-image">
-                </div>
-                <div class="item__disciption">
-                    <div class="item__disciption--class">
-                        Бизнес
-                    </div>
-                    <div class="item__disciption--title">
-                        <a>Hyundai Genesis G80<br>
-                            <span class="subtitle--year">(2017 год)</span></a><br>
-                        <span class="subtitle--price"></span>Цена: от 170 р.</span>
-                    </div>
-                    <button class="item__disciption--order">Забронировать</button>
-                </div>
-            </div>
+            </c:forEach>
         </div>
+    </div>
     </div>
 </section>
 </body>
