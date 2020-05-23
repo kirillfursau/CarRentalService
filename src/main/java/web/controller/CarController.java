@@ -8,7 +8,7 @@ import service.api.CarService;
 
 @Controller
 @RequiredArgsConstructor
-@RequestMapping("/cars")
+@RequestMapping("/admin/cars")
 public class CarController {
 
     private final CarService carService;

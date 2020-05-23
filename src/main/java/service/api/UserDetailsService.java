@@ -1,12 +1,10 @@
 package service.api;
 
-import dao.entity.User;
 import dao.entity.UserDetails;
 import dao.repository.model.UserDetailsDto;
-import dao.repository.model.UserDto;
 
-public interface RegistrationService {
-    User registration(UserDto userDto);
-
+public interface UserDetailsService {
     UserDetails createUserDetails(UserDetailsDto userDetailsDto);
+
+    UserDetails findUserDetailsByPhoneNumber(Long phoneNumber);
 }

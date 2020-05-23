@@ -1,17 +1,14 @@
 package service.impl;
 
 import dao.entity.Address;
-import dao.entity.User;
 import dao.entity.UserDetails;
-import dao.repository.api.RoleRepository;
 import dao.repository.api.UserDetailsRepository;
 import dao.repository.api.UserRepository;
 import dao.repository.model.UserDetailsDto;
-import dao.repository.model.UserDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import service.api.RegistrationService;
+import service.api.UserDetailsService;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -20,16 +17,13 @@ import java.util.List;
 @Service
 @Transactional
 @RequiredArgsConstructor
-public class RegistrationServiceImpl implements RegistrationService {
-    private final UserRepository userRepository;
-    private final RoleRepository roleRepository;
+public class UserDetailsServiceImpl implements UserDetailsService {
     private final UserDetailsRepository userDetailsRepository;
+    private final UserRepository userRepository;
 
     @Override
-    public User registration(UserDto userDto) {
-        User user = convertUser(userDto);
-        user.setRole(roleRepository.findById(2l).get());
-        return userRepository.save(user);
+    public UserDetails findUserDetailsByPhoneNumber(Long phoneNumber) {
+        return userRepository.findUserByPhoneNumber(phoneNumber).get().getUserDetails();
     }
 
     @Override
@@ -37,13 +31,6 @@ public class RegistrationServiceImpl implements RegistrationService {
         UserDetails userDetails = convertUserDetails(userDetailsDto);
         userDetailsRepository.save(userDetails);
         return null;
-    }
-
-    private User convertUser(UserDto userDto) {
-        User user = new User();
-        user.setPhoneNumber(userDto.getPhoneNumber());
-        user.setPassword(userDto.getPassword());
-        return user;
     }
 
     private UserDetails convertUserDetails(UserDetailsDto userDetailsDto) {

@@ -53,10 +53,13 @@ public class WebConfig implements WebMvcConfigurer {
         localeChangeInterceptor.setParamName("lang");
         registry.addInterceptor(localeChangeInterceptor);
     }
+
     @Override
     public void addViewControllers(ViewControllerRegistry registry) {
         registry.addViewController("/sign-in").setViewName("sign-in");
         registry.addViewController("/full-sign-up").setViewName("full-sign-up");
         registry.addViewController("/sign-up").setViewName("sign-up");
+        registry.addViewController("/car-add").setViewName("car-add");
+        registry.addViewController("/account-info").setViewName("account-info");
     }
 }

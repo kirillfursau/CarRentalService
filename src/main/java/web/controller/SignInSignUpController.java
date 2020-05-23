@@ -7,7 +7,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import service.api.RegistrationService;
+import service.api.UserDetailsService;
+import service.api.UserService;
 
 import javax.servlet.http.HttpSession;
 
@@ -16,11 +17,12 @@ import javax.servlet.http.HttpSession;
 @RequiredArgsConstructor
 public class SignInSignUpController {
 
-    private final RegistrationService registrationService;
+    private final UserService userService;
+    private final UserDetailsService userDetailsService;
 
     @PostMapping("/sign-up")
     public String signUp(@ModelAttribute UserDto userDto, HttpSession httpSession) {
-        registrationService.registration(userDto);
+        userService.registration(userDto);
         httpSession.setAttribute("phoneNumber", userDto.getPhoneNumber());
         return "redirect:http://localhost:8090/CarRentalService_war_exploded/full-sign-up";
     }
@@ -28,14 +30,19 @@ public class SignInSignUpController {
     @PostMapping("/full-sign-up")
     public String fullSignUp(@ModelAttribute UserDetailsDto userDetailsDto, HttpSession httpSession) {
         userDetailsDto.setPhoneNumber(Long.parseLong(String.valueOf(httpSession.getAttribute("phoneNumber"))));
-        registrationService.createUserDetails(userDetailsDto);
+        userDetailsService.createUserDetails(userDetailsDto);
         return "redirect:http://localhost:8090/CarRentalService_war_exploded/";
+
     }
 
     @PostMapping("/sign-in")
-    public String singIn(@ModelAttribute UserDetailsDto userDetailsDto, HttpSession httpSession) {
-        userDetailsDto.setPhoneNumber(Long.parseLong(String.valueOf(httpSession.getAttribute("phoneNumber"))));
-        registrationService.createUserDetails(userDetailsDto);
-        return "redirect:http://localhost:8090/CarRentalService_war_exploded/";
+    public String singIn(@ModelAttribute UserDto userDto, HttpSession httpSession) {
+        try {
+            userService.signIn(userDto);
+            httpSession.setAttribute("phoneNumber", userDto.getPhoneNumber());
+            return "redirect:http://localhost:8090/CarRentalService_war_exploded/";
+        } catch (RuntimeException exception) {
+            return "redirect:http://localhost:8090/CarRentalService_war_exploded/sign-up";
+        }
     }
 }

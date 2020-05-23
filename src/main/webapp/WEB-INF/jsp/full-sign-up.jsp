@@ -2,7 +2,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="th" uri="http://www.springframework.org/tags/form" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,14 +9,8 @@
     <link href="https://fonts.googleapis.com/css?family=Exo+2:400,500|Montserrat:300,400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
     <title>Document</title>
-    <script type="text/javascript">
-        <%@include file="/script/reg_add.js"%>
-    </script>
-
-    <style>
-        <%@include file="/css/style.css"%>
-    </style>
-
+    <script type="text/javascript"><%@include file="/script/reg.js"%></script>
+    <style><%@include file="/css/style.css"%></style>
 </head>
 
 <body>
