@@ -10,8 +10,12 @@
     <link href="https://fonts.googleapis.com/css?family=Exo+2:400,500|Montserrat:300,400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
     <title>Document</title>
-    <script type="text/javascript"><%@include file="/script/reg.js"%></script>
-    <style><%@include file="/css/style.css"%></style>
+    <script type="text/javascript">
+        <%@include file="/script/reg.js" %>
+    </script>
+    <style>
+        <%@include file="/css/style.css" %>
+    </style>
 </head>
 <body>
 <section class="section__outer section__inner">
@@ -44,13 +48,13 @@
             </div>
             <div class="main__content__list--info">
                 <ul class="full__info"><span class="title">Описание:</span>
-                    <li>Регистрационный номер:<c:out value="${car.registeredCarNumber}"/> </li>
-                    <li>Тип двигателя:<c:out value="${car.engineType}"/> </li>
+                    <li>Регистрационный номер:<c:out value="${car.registeredCarNumber}"/></li>
+                    <li>Тип двигателя:<c:out value="${car.engineType}"/></li>
                     <li>Год выпуска: <c:out value="${car.yearOfIssue}"/></li>
                     <li>Брэнд: <c:out value="${car.brand}"/></li>
                     <li>Модель: <c:out value="${car.model}"/></li>
                     <li>Класс: <c:out value="${car.carClass.carClass}"/></li>
-                    <li>Тип трансмиссии: <c:out value="${car.carClass.transmissionType}"/> </li>
+                    <li>Тип трансмиссии: <c:out value="${car.carClass.transmissionType}"/></li>
                     <li>Кондиционер: <c:out value="${car.carClass.airConditioning}"/></li>
                     <li>Цена: <c:out value="${car.rentalDayPrice}"/></li>
                 </ul>

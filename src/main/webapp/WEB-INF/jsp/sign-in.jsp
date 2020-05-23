@@ -9,8 +9,12 @@
     <link href="https://fonts.googleapis.com/css?family=Exo+2:400,500|Montserrat:300,400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
     <title>Document</title>
-    <script type="text/javascript"><%@include file="/script/reg.js"%></script>
-    <style><%@include file="/css/style.css"%></style>
+    <script type="text/javascript">
+        <%@include file="/script/reg.js" %>
+    </script>
+    <style>
+        <%@include file="/css/style.css" %>
+    </style>
 </head>
 
 <body>
@@ -28,7 +32,7 @@
             </div>
         </div>
         <div class="main__content--register">
-            <form action="/CarRentalService_war_exploded/registration/sign-in" method="post" >
+            <form action="/CarRentalService_war_exploded/registration/sign-in" method="post">
                 <div class="container">
                     <p>Заполните все поля для входа.</p>
                     <hr>
@@ -38,7 +42,8 @@
                            autocomplete="username" required>
 
                     <label><b>Пароль</b></label>
-                    <input type="password" placeholder="Введите пароль" name="password" autocomplete="password" required>
+                    <input type="password" placeholder="Введите пароль" name="password" autocomplete="password"
+                           required>
                     <hr>
                     <html lang="en">
 

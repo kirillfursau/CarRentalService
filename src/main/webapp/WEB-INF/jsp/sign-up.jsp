@@ -9,8 +9,12 @@
     <link href="https://fonts.googleapis.com/css?family=Exo+2:400,500|Montserrat:300,400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
     <title>Document</title>
-    <script type="text/javascript"><%@include file="/script/reg.js"%></script>
-    <style><%@include file="/css/style.css"%></style>
+    <script type="text/javascript">
+        <%@include file="/script/reg.js" %>
+    </script>
+    <style>
+        <%@include file="/css/style.css" %>
+    </style>
 </head>
 <body>
 <section class="section__outer section__inner">

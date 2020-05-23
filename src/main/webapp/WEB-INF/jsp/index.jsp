@@ -43,8 +43,10 @@
                         <div class="item__disciption--title">
                             <a href="./car-info-${cars.get(j).id}">
                                 <c:out value="${cars.get(j).brand}"/> <c:out value="${cars.get(j).model}"/><br>
-                                <span class="subtitle--year">(<c:out value="${cars.get(j).yearOfIssue}"/> год)</span></a><br>
-                            <span class="subtitle--price"></span>Цена: от <c:out value="${cars.get(j).rentalDayPrice}"/> р.</span>
+                                <span class="subtitle--year">(<c:out
+                                        value="${cars.get(j).yearOfIssue}"/> год)</span></a><br>
+                            <span class="subtitle--price"></span>Цена: от <c:out value="${cars.get(j).rentalDayPrice}"/>
+                            р.</span>
                         </div>
                         <button class="item__disciption--order">Забронировать</button>
                     </div>

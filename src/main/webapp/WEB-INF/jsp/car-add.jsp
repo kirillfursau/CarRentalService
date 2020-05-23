@@ -59,14 +59,14 @@
                     <input type="radio" value="2" name="carClass" id="mid"><label for="mid">
                     Средний</label><br>
                     <input type="radio" value="1" name="carClass" id="busi"><label for="busi"> Бизнес
-                    </label><br><br>
+                </label><br><br>
 
                     <label><b>Цена</b></label>
                     <input type="text" placeholder="Введите суточную цену" name="rentalDayPrice" autocomplete="text">
 
                     <hr>
                     <button type="submit" class="registerbtn">Подтвердить</button>
-                    </div>
+                </div>
 
                 <div class="container login">
                 </div>

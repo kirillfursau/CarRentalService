@@ -10,8 +10,12 @@
     <link href="https://fonts.googleapis.com/css?family=Exo+2:400,500|Montserrat:300,400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
     <title>Document</title>
-    <script type="text/javascript"><%@include file="/script/reg.js"%></script>
-    <style><%@include file="/css/style.css"%></style>
+    <script type="text/javascript">
+        <%@include file="/script/reg.js" %>
+    </script>
+    <style>
+        <%@include file="/css/style.css" %>
+    </style>
 </head>
 <body>
 <section class="section__outer section__inner">
@@ -31,11 +35,11 @@
             <div class="main__content__list--info">
                 <ul class="full__info"><span class="title">Ваши данные:</span>
                     <li>Ваше Имя: <c:out value="${userInfo.firstName}"/></li>
-                    <li>Фамилия: <c:out value="${userInfo.secondName}"/> </li>
+                    <li>Фамилия: <c:out value="${userInfo.secondName}"/></li>
                     <li>Дата рождения: <c:out value="${userInfo.dateOfBirth}"/></li>
-                    <li>Пол: <c:out value="${userInfo.gender}"/> </li>
-                    <li>Страна:  <c:out value="${userInfo.address.country}"/></li>
-                    <li>Город: <c:out value="${userInfo.address.city}"/> </li>
+                    <li>Пол: <c:out value="${userInfo.gender}"/></li>
+                    <li>Страна: <c:out value="${userInfo.address.country}"/></li>
+                    <li>Город: <c:out value="${userInfo.address.city}"/></li>
                     <li>Улица: <c:out value="${userInfo.address.street}"/></li>
                     <li>Дом: <c:out value="${userInfo.address.building}"/></li>
                     <li>Квартира: <c:out value="${userInfo.apartment}"/></li>
