@@ -26,8 +26,8 @@ public class CarServiceImpl implements CarService {
     }
 
     @Override
-    public String deleteById(Long id) {
-        return null;
+    public void deleteById(Long id) {
+        carRepository.deleteById(id);
     }
 
     @Override
