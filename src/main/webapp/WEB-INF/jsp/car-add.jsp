@@ -31,7 +31,7 @@
             </div>
         </div>
         <div class="main__content--register">
-            <form action="/CarRentalService_war_exploded/admin/cars/create-car" method="post">
+            <form action="/CarRentalService_war_exploded/admin/create-car" method="post">
                 <div class="container">
                     <p>Заполните все поля, необходимые для добавления.</p>
                     <hr>

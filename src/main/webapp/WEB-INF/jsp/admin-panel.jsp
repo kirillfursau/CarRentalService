@@ -2,7 +2,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="th" uri="http://www.springframework.org/tags/form" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-
+<html>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -27,9 +27,7 @@
             </div>
             <div class="main__content__header--links">
                 <div class="links">
-                    <div class="button register"><a href="./sign-up">Регистрация</a></div>
-                    <div class="button login"><a href="./sign-in">Вход</a></div>
-                    <div class="button account"><a href="./account-info">Аккаунт</a></div>
+                    <div class="button register"><a href="./car-add">Добавить авто</a></div>
                 </div>
             </div>
         </div>
@@ -43,7 +41,7 @@
                                     <c:out value="${cars.get(j).carClass.carClass}"/>
                                 </div>
                                 <div class="item__disciption--title">
-                                    <a href="./car-info-${cars.get(j).id}">
+                                    <a href="./admin-car-info-${cars.get(j).id}">
                                         <c:out value="${cars.get(j).brand}"/> <c:out value="${cars.get(j).model}"/><br>
                                         <span class="subtitle--year">(<c:out
                                                 value="${cars.get(j).yearOfIssue}"/> год)</span></a><br>
@@ -51,7 +49,9 @@
                                         value="${cars.get(j).rentalDayPrice}"/>
                                     р.</span>
                                 </div>
-                                <button class="item__disciption--order">Забронировать</button>
+                                <form action="./admin/delete/${cars.get(j).id}">
+                                    <button class="item__disciption--order">Удалить</button>
+                                </form>
                             </div>
                         </div>
                     </c:forEach>
