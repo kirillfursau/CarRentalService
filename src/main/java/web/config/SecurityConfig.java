@@ -22,14 +22,14 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests()
-                .antMatchers("/", "/sign-up", "/sign-in", "/car-info")
+                .antMatchers("/css/**","/", "/sign-up", "/sign-in", "/car-info/**","/full-sign-up")
                 .permitAll()
-                .antMatchers("/admin-panel", "/admin-car-info", "/create-car", "/delete/**")
+                .antMatchers("/admin-panel", "/admin-car-info/**", "/create-car", "/delete/**","/car-add")
                 .hasAuthority("ADMIN")
                 .antMatchers("/account-info")
                 .hasAnyAuthority("USER", "ADMIN")
                 .anyRequest()
-                .permitAll()
+                .authenticated()
 
                 .and()
                 .formLogin()
@@ -37,13 +37,13 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .loginProcessingUrl("/registration/sign-in")
                 .usernameParameter("phoneNumber")
                 .passwordParameter("password")
-                .defaultSuccessUrl("/sign-up")
+                .defaultSuccessUrl("/")
                 .permitAll()
 
                 .and()
                 .logout()
                 .logoutUrl("/logout")
-                .logoutSuccessUrl("/login")
+                .logoutSuccessUrl("/sign-in")
 
                 .and()
                 .csrf().disable();

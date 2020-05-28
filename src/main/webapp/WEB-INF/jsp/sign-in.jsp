@@ -36,7 +36,6 @@
                 <div class="container">
                     <p>Заполните все поля для входа.</p>
                     <hr>
-
                     <label><b>Номер телефона</b></label>
                     <input id="phone-mask" type="text" placeholder="+{375} (__) ___-__-__" name="phoneNumber"
                            autocomplete="username" required>
@@ -44,6 +43,7 @@
                     <label><b>Пароль</b></label>
                     <input type="password" placeholder="Введите пароль" name="password" autocomplete="password"
                            required>
+
                     <hr>
                     <html lang="en">
 

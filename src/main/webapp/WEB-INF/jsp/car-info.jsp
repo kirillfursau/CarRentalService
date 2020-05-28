@@ -26,9 +26,9 @@
             </div>
             <div class="main__content__header--links">
                 <div class="links">
-                    <div class="button back"><a href="./">&lsaquo;</a></div>
-                    <div class="button register"><a href="./sign-in">Регистрация</a></div>
-                    <div class="button login"><a href="./sign-in">Вход</a></div>
+                    <div class="button back"><a href="/CarRentalService_war_exploded/">&lsaquo;</a></div>
+                    <div class="button register"><a href="/CarRentalService_war_exploded/sign-up">Регистрация</a></div>
+                    <div class="button login"><a href="/CarRentalService_war_exploded/sign-in">Вход</a></div>
                 </div>
             </div>
         </div>

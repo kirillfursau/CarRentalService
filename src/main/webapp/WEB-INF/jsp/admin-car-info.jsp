@@ -26,7 +26,7 @@
             </div>
             <div class="main__content__header--links">
                 <div class="links">
-                    <div class="button back"><a href="./admin-panel">&lsaquo;</a></div>
+                    <div class="button back"><a href="/CarRentalService_war_exploded/admin-panel">&lsaquo;</a></div>
                 </div>
             </div>
         </div>

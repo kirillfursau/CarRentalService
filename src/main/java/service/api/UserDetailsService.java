@@ -6,5 +6,5 @@ import dao.repository.model.UserDetailsDto;
 public interface UserDetailsService {
     UserDetails createUserDetails(UserDetailsDto userDetailsDto);
 
-    UserDetails findUserDetailsByPhoneNumber(Long phoneNumber);
+    UserDetails findUserDetailsByPhoneNumber(String phoneNumber);
 }

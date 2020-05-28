@@ -47,6 +47,7 @@ public class WebConfig implements WebMvcConfigurer {
         return localeResolver;
     }
 
+
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
         LocaleChangeInterceptor localeChangeInterceptor = new LocaleChangeInterceptor();
@@ -65,4 +66,5 @@ public class WebConfig implements WebMvcConfigurer {
         registry.addViewController("/admin-panel").setViewName("admin-panel");
         registry.addViewController("/admin-car-info").setViewName("admin-car-info");
     }
+
 }

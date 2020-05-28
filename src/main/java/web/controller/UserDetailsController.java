@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import service.api.UserDetailsService;
 
 import javax.servlet.http.HttpSession;
-import java.util.Optional;
+import java.security.Principal;
 
 @Controller
 @RequiredArgsConstructor
@@ -15,14 +15,9 @@ public class UserDetailsController {
     private final UserDetailsService userDetailsService;
 
     @GetMapping("/account-info")
-    public String accountInfo(HttpSession httpSession, Model model) {
-        Optional<Object> phoneNumber = Optional.ofNullable(httpSession.getAttribute("phoneNumber"));
-        if (phoneNumber.isPresent()) {
-            model.addAttribute("userInfo",
-                    userDetailsService.findUserDetailsByPhoneNumber(Long.parseLong(String.valueOf(phoneNumber.get()))));
-            return "account-info";
-        } else {
-            return "sign-in";
-        }
+    public String accountInfo(Model model, Principal principal) {
+        model.addAttribute("userInfo",
+                userDetailsService.findUserDetailsByPhoneNumber(principal.getName()));
+        return "account-info";
     }
 }
