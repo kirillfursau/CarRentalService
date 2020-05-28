@@ -63,6 +63,12 @@
                             </div>
                         </div>
                     </c:forEach>
+                    <br>
+                    <c:forEach var="j" begin="0" end="${totalPages-1}" step="1">
+                        <div class="main__content__list">
+                            <div class="button login"><a href="./?page=${j}">${j+1}</a></div>
+                        </div>
+                    </c:forEach>
                 </c:when>
                 <c:otherwise>
                     <div class="main__content__list--item">

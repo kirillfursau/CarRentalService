@@ -3,11 +3,10 @@ package web.controller;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.*;
 import service.api.CarService;
+
+import java.util.stream.IntStream;
 
 @Controller
 @RequiredArgsConstructor
@@ -21,8 +20,11 @@ public class CarController {
     }
 
     @RequestMapping(value = "/", method = RequestMethod.GET)
-    public String welcomePage(Model model) {
-        model.addAttribute("cars", carService.showAllCars());
+    public String welcomePage(Model model,
+                              @RequestParam(value = "page", required = false, defaultValue = "0") int page,
+                              @RequestParam(value = "size", required = false, defaultValue = "3") int size) {
+        model.addAttribute("cars", carService.showAllCars(page, size).getContent());
+        model.addAttribute("totalPages", carService.showAllCars(page, size).getTotalPages());
         return "index";
     }
 }

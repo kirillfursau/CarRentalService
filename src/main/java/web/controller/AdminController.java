@@ -34,7 +34,7 @@ public class AdminController {
 
     @GetMapping(value = "/admin-panel")
     public String adminPanel(Model model) {
-        model.addAttribute("cars", carService.showAllCars());
+//        model.addAttribute("cars", carService.showAllCars());
         return "admin-panel";
     }
 

@@ -5,6 +5,8 @@ import dao.repository.api.CarClassRepository;
 import dao.repository.api.CarRepository;
 import dao.repository.model.CarDto;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import service.api.CarService;
@@ -30,9 +32,14 @@ public class CarServiceImpl implements CarService {
         carRepository.deleteById(id);
     }
 
+//    @Override
+//    public List<Car> showAllCars() {
+//        return carRepository.findAll();
+//    }
+
     @Override
-    public List<Car> showAllCars() {
-        return carRepository.findAll();
+    public Page<Car> showAllCars(int page, int size) {
+        return carRepository.findAll(PageRequest.of(page,size));
     }
 
     @Override
