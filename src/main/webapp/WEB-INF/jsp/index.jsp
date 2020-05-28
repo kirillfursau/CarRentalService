@@ -22,20 +22,21 @@
     <div class="main__content">
         <div class="main__content__header">
             <div>
-                <fmt:message key="label.changeLang" />
+                <fmt:message key="label.changeLang"/>
             </div>
             <ul>
-                <div class="button language"><a href="?lang=en_US"><fmt:message key="label.lang.en" /></a></div>
-                <div class="button language"><a href="?lang=ru_RU"><fmt:message key="label.lang.ru" /></a></div>
+                <div class="button language"><a href="?lang=en_US"><fmt:message key="label.lang.en"/></a></div>
+                <div class="button language"><a href="?lang=ru_RU"><fmt:message key="label.lang.ru"/></a></div>
             </ul>
             <div class="main__content__header--title">
-                <h1> <fmt:message key="label.carPark" /></h1>
+                <h1><fmt:message key="label.carPark"/></h1>
             </div>
             <div class="main__content__header--links">
                 <div class="links">
-                    <div class="button register"><a href="./sign-up"><fmt:message key="label.registration" /></a></div>
-                    <div class="button login"><a href="./sign-in"><fmt:message key="label.sign-in" /></a></div>
-                    <div class="button account"><a href="./account-info"><fmt:message key="label.account-info" /></a></div>
+                    <div class="button register"><a href="./sign-up"><fmt:message key="label.registration"/></a></div>
+                    <div class="button login"><a href="./sign-in"><fmt:message key="label.sign-in"/></a></div>
+                    <div class="button account"><a href="./account-info"><fmt:message key="label.account-info"/></a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -52,12 +53,13 @@
                                     <a href="./car-info/${cars.get(j).id}">
                                         <c:out value="${cars.get(j).brand}"/> <c:out value="${cars.get(j).model}"/><br>
                                         <span class="subtitle--year">(<c:out
-                                                value="${cars.get(j).yearOfIssue}"/> <fmt:message key="label.year" />)</span></a><br>
-                                    <span class="subtitle--price"></span><fmt:message key="label.price" /> <c:out
+                                                value="${cars.get(j).yearOfIssue}"/> <fmt:message
+                                                key="label.year"/>)</span></a><br>
+                                    <span class="subtitle--price"></span><fmt:message key="label.price"/> <c:out
                                         value="${cars.get(j).rentalDayPrice}"/>
                                     р.</span>
                                 </div>
-                                <button class="item__disciption--order"><fmt:message key="label.reservation" /></button>
+                                <button class="item__disciption--order"><fmt:message key="label.reservation"/></button>
                             </div>
                         </div>
                     </c:forEach>
@@ -67,7 +69,7 @@
                         <div class="item__disciption">
                             <div class="item__disciption--class">
                             </div>
-                            <h1><fmt:message key="label.noCars" /></h1>
+                            <h1><fmt:message key="label.noCars"/></h1>
                         </div>
                     </div>
                 </c:otherwise>

@@ -1,0 +1,6 @@
+2020-05-28 23:20:52,215 INFO  - HHH000412: Hibernate Core {5.4.2.Final}
+2020-05-28 23:20:53,059 INFO  - HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+2020-05-28 23:20:55,146 INFO  - HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2020-05-28 23:20:56,558 INFO  - HV000001: Hibernate Validator 6.0.2.Final
+2020-05-28 23:20:59,244 INFO  - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2020-05-28 23:21:22,988 INFO  - User with phone '5' add

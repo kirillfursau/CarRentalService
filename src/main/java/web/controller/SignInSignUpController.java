@@ -35,6 +35,5 @@ public class SignInSignUpController {
         userDetailsDto.setPhoneNumber(String.valueOf(httpSession.getAttribute("phoneNumber")));
         userDetailsService.createUserDetails(userDetailsDto);
         return "redirect:http://localhost:8090/CarRentalService_war_exploded/";
-
     }
 }

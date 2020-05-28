@@ -5,6 +5,7 @@ import dao.repository.api.RoleRepository;
 import dao.repository.api.UserRepository;
 import dao.repository.model.UserDto;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.log4j.Log4j;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -14,11 +15,11 @@ import org.springframework.transaction.annotation.Transactional;
 import service.api.UserService;
 
 import java.util.Collections;
-import java.util.Optional;
 
 @Service
 @Transactional
 @RequiredArgsConstructor
+@Log4j
 public class UserServiceImpl implements UserService, UserDetailsService {
     private final UserRepository userRepository;
     private final RoleRepository roleRepository;
@@ -26,6 +27,7 @@ public class UserServiceImpl implements UserService, UserDetailsService {
 
     @Override
     public User registration(UserDto userDto) {
+        log.info(String.format("User with phone '%s' add", userDto.getPhoneNumber()));
         User user = convertUser(userDto);
         user.setRole(roleRepository.findById(2l).get());
         return userRepository.save(user);
