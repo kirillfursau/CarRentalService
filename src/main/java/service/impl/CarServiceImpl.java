@@ -11,8 +11,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import service.api.CarService;
 
-import java.util.List;
-
 @Service
 @Transactional
 @RequiredArgsConstructor
@@ -32,14 +30,9 @@ public class CarServiceImpl implements CarService {
         carRepository.deleteById(id);
     }
 
-//    @Override
-//    public List<Car> showAllCars() {
-//        return carRepository.findAll();
-//    }
-
     @Override
     public Page<Car> showAllCars(int page, int size) {
-        return carRepository.findAll(PageRequest.of(page,size));
+        return carRepository.findAll(PageRequest.of(page, size));
     }
 
     @Override

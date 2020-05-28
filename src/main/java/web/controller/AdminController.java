@@ -6,10 +6,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.FieldError;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.*;
 import service.api.CarService;
 
 import javax.validation.Valid;
@@ -33,10 +30,14 @@ public class AdminController {
     }
 
     @GetMapping(value = "/admin-panel")
-    public String adminPanel(Model model) {
-//        model.addAttribute("cars", carService.showAllCars());
+    public String adminPanel(Model model,
+                             @RequestParam(value = "page", required = false, defaultValue = "0") int page,
+                             @RequestParam(value = "size", required = false, defaultValue = "3") int size) {
+        model.addAttribute("cars", carService.showAllCars(page, size).getContent());
+        model.addAttribute("totalPages", carService.showAllCars(page, size).getTotalPages());
         return "admin-panel";
     }
+
 
     @GetMapping(path = "/admin-car-info/{j}")
     public String getAdminCarInfo(Model model, @PathVariable Long j) {

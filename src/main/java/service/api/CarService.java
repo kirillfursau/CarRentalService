@@ -9,8 +9,6 @@ public interface CarService {
 
     void deleteById(Long id);
 
-//    List<Car> showAllCars();
-
     Car showCar(Long id);
 
     Page<Car> showAllCars(int page, int size);

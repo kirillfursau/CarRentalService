@@ -74,3 +74,13 @@
 2020-05-29 00:54:28,044 INFO  - HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
 2020-05-29 00:54:29,282 INFO  - HV000001: Hibernate Validator 6.0.2.Final
 2020-05-29 00:54:31,527 INFO  - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2020-05-29 00:59:29,949 INFO  - HHH000412: Hibernate Core {5.4.2.Final}
+2020-05-29 00:59:31,092 INFO  - HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+2020-05-29 00:59:33,577 INFO  - HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2020-05-29 00:59:35,491 INFO  - HV000001: Hibernate Validator 6.0.2.Final
+2020-05-29 00:59:38,521 INFO  - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2020-05-29 01:00:55,579 INFO  - HHH000412: Hibernate Core {5.4.2.Final}
+2020-05-29 01:00:55,988 INFO  - HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+2020-05-29 01:00:56,743 INFO  - HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2020-05-29 01:00:57,816 INFO  - HV000001: Hibernate Validator 6.0.2.Final
+2020-05-29 01:00:59,789 INFO  - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
